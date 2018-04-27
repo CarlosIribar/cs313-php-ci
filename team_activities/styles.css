@@ -1,0 +1,7 @@
+.di {
+  background: green;
+  font-size: 12px;
+}
+div:hover {
+  font-weight: bold;
+}

@@ -1,0 +1,13 @@
+.card {
+  max-width: 50%;
+  margin: auto;
+}
+.blue-bg {
+  background: #0038a8;
+}
+.white-font {
+  color: white !important;
+}
+.coming:hover {
+  color: #0038a8;
+}
