@@ -2,15 +2,15 @@
 <body>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-Name: <input type="text" name="name"><br>
-E-mail: <input type="text" name="email"><br>
+Name: <br><input type="text" name="name"><br>
+E-mail: <br><input type="text" name="email"><br>
 
-Major:
+Major: <br>
 <input type="radio" name="major" value="Computer Science">Computer Science<br>
 <input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
 <input type="radio" name="major" value="Computer information Technology">Computer information Technology<br>
 <input type="radio" name="major" value="Computer Engineering">Computer Engineering<br>
-Comments: 
+Comments: <br>
 <input type="textarea" name="comments"><br>
 
 <input type="checkbox" name="continents[]" vaule="North America">North America<br>
@@ -39,6 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $australia = $_POST["australia"];
   $africa = $_POST["africa"];
   $antarctica = $_POST["antarctica"];
+
+    echo '<h3>Continents visited: </h3>';
+    $continents = $_POST['continents'];
+
+    // optional
+    // echo "You chose the following color(s): <br>";
+
+    foreach ($continents as $continent){ 
+    echo $continent."<br>";
+    }
 }
 
 function test_input($data) {
@@ -47,15 +57,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-echo '<h3>Continents visited: </h3>';
-$continents = $_GET['continent'];
 
-// optional
-// echo "You chose the following color(s): <br>";
-
-foreach ($continents as $continent){ 
-    echo $continent."<br>";
-}
 ?>
 
 <?php echo 'name: ' . $name . '<br>' ;?>
