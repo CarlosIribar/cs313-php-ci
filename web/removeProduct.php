@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "products.php";
 if (isset($_POST['product'])) {
     $product = $_POST['product'];
