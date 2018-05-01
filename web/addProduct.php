@@ -1,6 +1,7 @@
 <?php
 require "products.php";
 if (isset($_POST['product'])) {
+    $_SESSION["calling"] = true;
     $product = $_POST['product'];
     if ($product === $moma) {
         $_SESSION["has_moma"] = true;

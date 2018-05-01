@@ -18,15 +18,16 @@
       echo '<li>' . $central . '<button onclick="addProduct(\'' . $central . '\')">Add</button></li>';
       echo '<li>' . $empire . '<button onclick="addProduct(\'' . $empire . '\')">Add</button></li>';
       echo '<li>' . $statue . '<button onclick="addProduct(\'' . $statue . '\')">Add</button></li>';
-
+      print_r($_SESSION);
     ?>
+    
 </ul>
 <a href="./cart.php"> View cart </a>
 <script>
   function addProduct(product) {
     $.ajax({
       type: "POST",
-      url: "addProduct.php",
+      url: "addproduct.php",
       data: { product: product }
     })
   }
