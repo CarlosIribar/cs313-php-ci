@@ -25,7 +25,7 @@
   function addProduct(product) {
     $.ajax({
       type: "POST",
-      url: "/web/addProduct.php",
+      url: "./addProduct.php",
       data: { product: product }
     })
   }

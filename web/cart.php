@@ -32,7 +32,7 @@
   function removeProduct(product, elem) {
     $.ajax({
       type: "POST",
-      url: "removeProduct.php",
+      url: "./removeProduct.php",
       data: { product: product }
     })
     $('#' + elem).remove();
