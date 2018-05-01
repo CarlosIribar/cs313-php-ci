@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo "You chose the following color(s): <br>";
 
     foreach ($continents as $continent){ 
-    echo $continent."<br>";
+    echo $continent . "<br>";
     }
 }
 
@@ -63,7 +63,6 @@ function test_input($data) {
 <?php echo 'name: ' . $name . '<br>' ;?>
 <?php echo 'email: ' . $email . '<br>' ;?>
 <?php echo 'major: ' . $major . '<br>' ;?>
-<?php echo 'comments: ' . $comments . '<br>' ;?>
 <?php echo 'comments: ' . $comments . '<br>' ;?>
 
 
