@@ -4,22 +4,23 @@
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 Name: <input type="text" name="name"><br>
 E-mail: <input type="text" name="email"><br>
-<input type="submit">
+
 Major:
-<input type="radio" name="major" value="Computer Science">Computer Science
-<input type="radio" name="major" value="Web Design and Development">Web Design and Development
-<input type="radio" name="major" value="Computer information Technology">Computer information Technology
-<input type="radio" name="major" value="Computer Engineering">Computer Engineering
+<input type="radio" name="major" value="Computer Science">Computer Science<br>
+<input type="radio" name="major" value="Web Design and Development">Web Design and Development<br>
+<input type="radio" name="major" value="Computer information Technology">Computer information Technology<br>
+<input type="radio" name="major" value="Computer Engineering">Computer Engineering<br>
 Comments: 
 <input type="textarea" name="comments"><br>
 
-<input type="checkbox" name="north_america">North America
-<input type="checkbox" name="south_america">South America
-<input type="checkbox" name="europe">Europe
-<input type="checkbox" name="asia">Asia
-<input type="checkbox" name="australia">Australia
-<input type="checkbox" name="africa">Africa
-<input type="checkbox" name="antarctica">Antarctica
+<input type="checkbox" name="continents[]" vaule="North America">North America<br>
+<input type="checkbox" name="continents[]" vaule="South America">South America<br>
+<input type="checkbox" name="continents[]" vaule="Europe">Europe<br>
+<input type="checkbox" name="continents[]" vaule="Asia">Asia<br>
+<input type="checkbox" name="continents[]" vaule="Australia">Australia<br>
+<input type="checkbox" name="continents[]" vaule="Africa">Africa<br>
+<input type="checkbox" name="continents[]" vaule="Antarctica">Antarctica<br>
+<input type="submit">
 </form>
 
 <?php
@@ -46,35 +47,22 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-echo 'Continents visited: ';
-if (north_america == true) {
-    echo 'North America';
-}
-if (south_america == true) {
-    echo 'South America';
-}
-if (europe == true) {
-    echo 'Europe';
-}
-if (asia == true) {
-    echo 'Asia';
-}
-if (australia == true) {
-    echo 'Australia';
-}
-if (africa == true) {
-    echo 'Africa';
-}
-if (antarctica == true) {
-    echo 'Antartica';
+echo '<h3>Continents visited: </h3>';
+$continents = $_GET['continent'];
+
+// optional
+// echo "You chose the following color(s): <br>";
+
+foreach ($continents as $continent){ 
+    echo $continent."<br>";
 }
 ?>
 
-<?php echo 'name: ' . $name;?>
-<?php echo 'email: ' . $email;?>
-<?php echo 'major: ' . $major;?>
-<?php echo 'comments: ' . $comments;?>
-<?php echo 'comments: ' . $comments;?>
+<?php echo 'name: ' . $name . '<br>' ;?>
+<?php echo 'email: ' . $email . '<br>' ;?>
+<?php echo 'major: ' . $major . '<br>' ;?>
+<?php echo 'comments: ' . $comments . '<br>' ;?>
+<?php echo 'comments: ' . $comments . '<br>' ;?>
 
 
 </body>
