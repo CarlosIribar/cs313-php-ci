@@ -6,7 +6,6 @@
 
   <h1>Items in your cart</h1>
   <ul>
-
     <?php
       if ($_SESSION["has_moma"] == true) {
         echo '<li>' . $moma . '<button onclick="removeProduct(\'' . $moma . '\')">Remove</button></li>';

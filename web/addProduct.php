@@ -1,5 +1,6 @@
 <?php
 require "products.php";
+echo "callling this";
 if (isset($_POST['product'])) {
     $_SESSION["calling"] = true;
     $product = $_POST['product'];
