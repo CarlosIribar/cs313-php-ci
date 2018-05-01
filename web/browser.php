@@ -13,7 +13,7 @@
 <ul>
 
     <?php
-      echo '<li>' . $moma . '<button onclick="addProduct(' . $moma . ')">Add</button></li>';
+      echo '<li>' . $moma . '<button onclick="addProduct("' . $moma . '")">Add</button></li>';
       echo '<li>' . $central . '<button onclick="addProduct(' . $central . ')">Add</button></li>';
       echo '<li>' . $empire . '<button onclick="addProduct(' . $empire . ')">Add</button></li>';
       echo '<li>' . $statue . '<button onclick="addProduct(' . $statue . ')">Add</button></li>';
