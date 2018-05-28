@@ -1,0 +1,22 @@
+After completing the assignment, please answer the questions in this text file and submit it to I-Learn.
+
+1. Describe something from your database that you think came together very nicely.
+
+
+2. Describe something from your database that you think could be improved or extended in the future.
+May be in the future is necessary add more columns to my tables.
+
+3. Briefly describe the "coolest" thing you learned while completing this assignment.
+The coolest thing was how to create a database in heroku
+
+4. Briefly describe two principles of good database design.
+1) The database doesn't have redundancy information or data
+2) The tables have constraints to ensure the quality of the data inserted.
+
+5. Please select the category you feel best describes your assignment:
+D - Meets requirements
+
+
+
+6. Provide a brief justification (1-2 sentences) for selecting that category.
+I met the requirements, I can't think in something beyond the initial scope. 
