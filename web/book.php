@@ -47,7 +47,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo $row['isbn'] . "<br>";
     echo "<b>Owner:</b> ";
     echo $row['user'] . "<br>";
-    echo "<img src='".$row['cover'] . "'/><br>";
+    echo "<img height='300px' width='200px' src='". $row['cover'] . "'/><br>";
 }
 ?>
 
