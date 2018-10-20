@@ -43,7 +43,7 @@ Search: <input type="text" placeholder="Search book by owner" name="owner">
 <input type="submit">
 </form>
 
-<a href="/add_book">Add book </a>
+<a href="/add_book.php">Add book </a>
 
 <h1>Books List</h1>
 
