@@ -26,30 +26,48 @@ catch (PDOException $ex)
 <head>
 	<title>Books List</title>
 </head>
-
+<style>
+.table {
+    margin-top: 30px;
+}
+.th {
+    padding: 3px;
+}
+</style>
 <body>
 <div>
 
 <h1>Books List</h1>
-<?php
-$query = "SELECT b.Id, b.Name, b.Author, b.ISBN, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id";
-$statement = $db->prepare($query);
-$statement->execute();
 
-echo "<table border='1'>
+<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="get">
+Search: <input type="text" placeholder="Search book by owner" name="owner">
+<input type="submit">
+</form>
+
+<?php
+
+if(isset($_GET['owner']) && !empty($_GET['owner'])){
+    $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE a.Name = ?";
+    $statement = $db->prepare($query);
+    $statement->execute(array($_GET['owner']));
+} else {
+    $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id";
+    $statement = $db->prepare($query);
+    $statement->execute();
+}
+
+echo "<table>
 <tr>
-<th>Id</th>
 <th>Name</th>
 <th>Author</th>
 <th>ISBN</th>
-<th>User</th>
+<th>Owner</th>
 </tr>";
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {  
 	echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
-    echo "<td>" . $row['name'] . "</td>";
+    echo "<td><a href='/book.php?id=" . $row['id'] . "'>". $row['name'] . "</a></td>";
     echo "<td>" . $row['author'] . "</td>";
     echo "<td>" . $row['isbn'] . "</td>";
     echo "<td>" . $row['user'] . "</td>";
