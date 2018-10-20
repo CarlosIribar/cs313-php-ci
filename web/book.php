@@ -33,7 +33,7 @@ catch (PDOException $ex)
 <h1>Book Detail</h1>
 <?php
 $id = $_GET["id"];
-$query = "SELECT b.Id, b.Name, b.Author, b.ISBN, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE b.id = ?";
+$query = "SELECT b.Id, b.Name, b.Author, b.ISBN, b.cover a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE b.id = ?";
 $statement = $db->prepare($query);  
 $statement->execute(array($id));
 
@@ -47,6 +47,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo $row['isbn'] . "<br>";
     echo "<b>Owner:</b> ";
     echo $row['user'] . "<br>";
+    echo "<img src='".$row['cover'] . "'/><br>";
 }
 ?>
 

@@ -23,3 +23,8 @@ CREATE TABLE LectureProgress(
     BookId        integer REFERENCES books(Id),
     UserId        integer REFERENCES Accounts(Id)
 );
+
+
+-- DATABASE MODIFICATIONS
+ALTER TABLE books
+ADD Cover varchar(150);
