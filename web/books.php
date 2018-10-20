@@ -27,22 +27,25 @@ catch (PDOException $ex)
 	<title>Books List</title>
 </head>
 <style>
-.table {
+table {
     margin-top: 30px;
 }
-.th {
+th, td {
     padding: 3px;
 }
 </style>
 <body>
 <div>
 
-<h1>Books List</h1>
 
 <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="get">
 Search: <input type="text" placeholder="Search book by owner" name="owner">
 <input type="submit">
 </form>
+
+<a href="/add_book">Add book </a>
+
+<h1>Books List</h1>
 
 <?php
 
