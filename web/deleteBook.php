@@ -28,7 +28,7 @@ try
 {
 	// Add the Scripture
 	// We do this by preparing the query with placeholder values
-	$query = 'DELETE FROM books WHERE id=?)';
+	$query = 'DELETE FROM books WHERE id=?';
 	$statement = $db->prepare($query);
   $statement->execute(array($id));
 }
