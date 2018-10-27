@@ -53,7 +53,7 @@ $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, b.cover, a.Name as user FROM bo
 $statement = $db->prepare($query);  
 $statement->execute(array($id));
 
-$q = "SELECT Id, Name FROM Accounts";
+$q = "SELECT id as i, name FROM Accounts";
 $st = $db->prepare($q);  
 $st->execute();
 
@@ -73,12 +73,12 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 
     echo "<select name='ownerid'>";
     
-    while ($userItem = $st->fetch(PDO::FETCH_ASSOC))
+    while ($item = $st->fetch(PDO::FETCH_ASSOC))
         {  
-            if ($userItem['id'] = $row['user']) {
-                echo "<option selected='selected' value='" . $userItem['id'] . "'>" . $userItem['name'] . "</option>";
+            if ($item['id'] = $row['user']) {
+                echo "<option selected='selected' value='" . $item['i'] . "'>" . $item['name'] . "</option>";
             } else {
-                echo "<option value='" . $userItem['id'] . "'>" . $userItem['name'] . "</option>";
+                echo "<option value='" . $item['i'] . "'>" . $item['name'] . "</option>";
 
             }
 
