@@ -41,7 +41,7 @@ try
 	$statement->bindValue(':author', $author);
 	$statement->bindValue(':isbn', $isbn);
     $statement->bindValue(':cover', $cover);
-    $statement->bindValue(':owner', $owner);
+    #$statement->bindValue(':owner', $owner);
     $statement->bindValue(':id', $id);
     $statement->execute();
 }
