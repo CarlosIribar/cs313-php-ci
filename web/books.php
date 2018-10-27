@@ -44,7 +44,7 @@ th, td {
         url: "deleteBook.php",
         data: { id: id }
     }).done(function( msg ) {
-        console.log('deleted');
+        $(`#row-${id}`).remove();
     }); 
  }
 </script>
@@ -83,7 +83,7 @@ echo "<table>
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {  
-	echo "<tr>";
+	echo "<tr id='row-" . $row['id'] . "'>";
     echo "<td><a href='/book.php?id=" . $row['id'] . "'>". $row['name'] . "</a></td>";
     echo "<td>" . $row['author'] . "</td>";
     echo "<td>" . $row['isbn'] . "</td>";
