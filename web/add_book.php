@@ -62,9 +62,9 @@ form {
 <label>OWNER</label>
 <?php
 $index = 0;
+echo "<select name='owner'>";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {  
-        echo "<select name='owner'>";
         if ($index == 0) {
             echo "<option selected='selected' value='" . $row['id'] . "'>" . $row['name'] . "</option>";
         } else {
