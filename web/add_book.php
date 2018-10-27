@@ -49,7 +49,7 @@ form {
 <a href="/books.php"> Back to Book List </a>
 <h1>Add Book</h1>
 
-<form action="" method="post">
+<form action="insert_book.php" method="post">
 <label>Name</label>
 <input type="text" placeholder="Name" name="name">
 <br>
