@@ -88,7 +88,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<td>" . $row['author'] . "</td>";
     echo "<td>" . $row['isbn'] . "</td>";
     echo "<td>" . $row['user'] . "</td>";
-    echo "<td><button onClick='removeBook(". $row['id'] . ")'> Remove </button></td>";
+    echo "<td><button onClick='removeBook(". $row['id'] . ")'> Remove </button>";
+    echo "<a href='/editBook.php?id=" . $row['id'] . "'> Edit </a></td>";
     echo "</tr>";
 }
 echo "</table>";
