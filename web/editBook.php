@@ -67,7 +67,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<br>";
     echo "<label>OWNER</label>";
 
-    echo "<select name='owner'>";
+    echo "<select name='ownerid'>";
     $query = "SELECT Id, Name FROM Accounts";
     $statement = $db->prepare($query);  
     $statement->execute();
