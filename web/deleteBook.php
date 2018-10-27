@@ -28,12 +28,9 @@ try
 {
 	// Add the Scripture
 	// We do this by preparing the query with placeholder values
-	$query = 'DELETE FROM books WHERE id=:id)';
+	$query = 'DELETE FROM books WHERE id=?)';
 	$statement = $db->prepare($query);
-	// Now we bind the values to the placeholders. This does some nice things
-	// including sanitizing the input with regard to sql commands.
-	$statement->bindValue(':id', $id);
-    $statement->execute();
+  $statement->execute(array($id));
 }
 catch (Exception $ex)
 {
