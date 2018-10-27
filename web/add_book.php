@@ -1,30 +1,34 @@
 <?php
 try
 {
-  $dbUrl = getenv('DATABASE_URL');
-
-  $dbOpts = parse_url($dbUrl);
-
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
-
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbUrl = getenv('DATABASE_URL');
+    
+    $dbOpts = parse_url($dbUrl);
+    
+    $dbHost = $dbOpts["host"];
+    $dbPort = $dbOpts["port"];
+    $dbUser = $dbOpts["user"];
+    $dbPassword = $dbOpts["pass"];
+    $dbName = ltrim($dbOpts["path"],'/');
+    
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query = "SELECT Id, Name FROM Accounts";
+    $statement = $db->prepare($query);  
+    $statement->execute();
+ 
 }
 catch (PDOException $ex)
 {
-  echo 'Error!: ' . $ex->getMessage();
-  die();
+    echo 'Error!: ' . $ex->getMessage();
+    die();
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Book</title>
+<title>Add Book</title>
 </head>
 <style>
 input {
@@ -56,7 +60,20 @@ form {
 <input type="text" placeholder="ISBN" name="isbn">
 <br>
 <label>OWNER</label>
-<input type="text" placeholder="Owner" name="owner">
+<?php
+$index = 0;
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    {  
+        echo "<select name='owner'>";
+        if ($index == 0) {
+            echo "<option selected='selected' value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+        } else {
+            echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+
+        }
+        echo "</select>";
+        $index = $index + 1;
+    }    ?>
 <br>
 <label>Cover link</label>
 <input type="text" placeholder="Cover link" name="cover">
