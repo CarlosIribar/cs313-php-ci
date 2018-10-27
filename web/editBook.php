@@ -53,6 +53,10 @@ $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, b.cover, a.Name as user FROM bo
 $statement = $db->prepare($query);  
 $statement->execute(array($id));
 
+$q = "SELECT Id, Name FROM Accounts";
+$st = $db->prepare($q);  
+$st->execute();
+
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {  
     echo "<label>Name</label>";
@@ -68,9 +72,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<label>OWNER</label>";
 
     echo "<select name='ownerid'>";
-    $q = "SELECT Id, Name FROM Accounts";
-    $st = $db->prepare($q);  
-    $st->execute();
+    
     while ($userItem = $st->fetch(PDO::FETCH_ASSOC))
         {  
             if ($userItem['id'] = $row['user']) {
