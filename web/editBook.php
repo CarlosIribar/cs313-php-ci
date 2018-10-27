@@ -44,7 +44,7 @@ form {
 <body>
 <div>
 <a href="/books.php"> Back to Book List </a>
-<h1>Add Book</h1>
+<h1>Edit Book</h1>
 
 <form action="edit_book_db.php" method="post">
 <?php

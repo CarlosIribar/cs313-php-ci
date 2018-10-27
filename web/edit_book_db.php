@@ -33,7 +33,7 @@ try
 {
 	// Add the Scripture
 	// We do this by preparing the query with placeholder values
-	$query = 'UPDATE books set Name=:name, Author=:author, isbn=:isbn, Cover=:cover WHERE id = :id ';
+	$query = 'UPDATE books set Name=:name, Author=:author, isbn=:isbn, Cover=:cover, userId=:owner WHERE id = :id ';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
@@ -41,7 +41,7 @@ try
 	$statement->bindValue(':author', $author);
 	$statement->bindValue(':isbn', $isbn);
     $statement->bindValue(':cover', $cover);
-    ##$statement->bindValue(':owner', $owner);
+    $statement->bindValue(':owner', $owner);
     $statement->bindValue(':id', $id);
     $statement->execute();
 }
