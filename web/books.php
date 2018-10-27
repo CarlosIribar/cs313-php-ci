@@ -35,6 +35,19 @@ th, td {
 }
 </style>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+ function removeBook(id) {
+    console.log(id);
+    $.ajax({
+        type: "POST",
+        url: "deleteBook.php",
+        data: { id: id }
+    }).done(function( msg ) {
+        console.log('deleted');
+    }); 
+ }
+</script>
 <div>
 
 
@@ -65,6 +78,7 @@ echo "<table>
 <th>Author</th>
 <th>ISBN</th>
 <th>Owner</th>
+<th>Actions</th>
 </tr>";
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
@@ -74,6 +88,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<td>" . $row['author'] . "</td>";
     echo "<td>" . $row['isbn'] . "</td>";
     echo "<td>" . $row['user'] . "</td>";
+    echo "<td><button onClick='removeBook(". $row['id'] . ")'> Remove </button></td>";
     echo "</tr>";
 }
 echo "</table>";
