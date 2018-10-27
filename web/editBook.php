@@ -68,10 +68,10 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<label>OWNER</label>";
 
     echo "<select name='ownerid'>";
-    $query = "SELECT Id, Name FROM Accounts";
-    $statement = $db->prepare($query);  
-    $statement->execute();
-    while ($userItem = $statement->fetch(PDO::FETCH_ASSOC))
+    $q = "SELECT Id, Name FROM Accounts";
+    $st = $db->prepare($q);  
+    $st->execute();
+    while ($userItem = $st->fetch(PDO::FETCH_ASSOC))
         {  
             if ($userItem['id'] = $row['user']) {
                 echo "<option selected='selected' value='" . $userItem['id'] . "'>" . $userItem['name'] . "</option>";
