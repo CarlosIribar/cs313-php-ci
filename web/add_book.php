@@ -71,9 +71,10 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
             echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
 
         }
-        echo "</select>";
         $index = $index + 1;
-    }    ?>
+    }
+    echo "</select>";
+?>
 <br>
 <label>Cover link</label>
 <input type="text" placeholder="Cover link" name="cover">
