@@ -56,28 +56,30 @@ $statement->execute(array($id));
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 {  
     echo "<label>Name</label>";
-    echo "<input style=\"display:none\" type=\"text\" value=\"". row['id'] . "\" placeholder=\"id\" name=\"id\">";
-    echo "<input type=\"text\" value=\"". row['name'] . "\" placeholder=\"Name\" name=\"name\">";
+    echo "<input style=\"display:none\" type=\"text\" value=\"". $row['id'] . "\" placeholder=\"id\" name=\"id\">";
+    echo "<input type=\"text\" value=\"". $row['name'] . "\" placeholder=\"Name\" name=\"name\">";
     echo "<br>";
     echo "<label>Author</label>";
-    echo "<input type=\"text\" placeholder=\"Author\" value=\"" . row['author'] . "\" name=\"author\">";
+    echo "<input type=\"text\" placeholder=\"Author\" value=\"" . $row['author'] . "\" name=\"author\">";
     echo "<br>";
     echo "<label>ISBN</label>";
-    echo "<input type=\"text\" placeholder=\"ISBN\" value=\"" . row['isbn'] . "\" name=\"isbn\">";
+    echo "<input type=\"text\" placeholder=\"ISBN\" value=\"" . $row['isbn'] . "\" name=\"isbn\">";
     echo "<br>";
     echo "<label>OWNER</label>";
 
-    $index = 0;
     echo "<select name='owner'>";
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    $query = "SELECT Id, Name FROM Accounts";
+    $statement = $db->prepare($query);  
+    $statement->execute();
+    while ($userItem = $statement->fetch(PDO::FETCH_ASSOC))
         {  
-            if ($index == 0) {
-                echo "<option selected='selected' value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+            if ($userItem['id'] = $row['user']) {
+                echo "<option selected='selected' value='" . $userItem['id'] . "'>" . $userItem['name'] . "</option>";
             } else {
-                echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+                echo "<option value='" . $userItem['id'] . "'>" . $userItem['name'] . "</option>";
 
             }
-            $index = $index + 1;
+
         }
     echo "</select>";
 
