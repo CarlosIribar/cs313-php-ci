@@ -4,20 +4,22 @@
 // get the data from the POST
 $start = $_POST['start'];
 $end = $_POST['end'];
-$userid = $_POST['user'];
+$userid = $_POST['userid'];
+$bookid = $_POST['bookid'];
 
 try
 {
     $password = password_hash($password, PASSWORD_DEFAULT);
 
 	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO LectureProgress(Start, End, UserId)  VALUES(:start, :end, :userid)';
+	$query = 'INSERT INTO LectureProgress(Start, End, UserId, BookId) VALUES (:start, :end, :userid :bookid)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
 	$statement->bindValue(':start', $start);
 	$statement->bindValue(':end', $end);
 	$statement->bindValue(':userid', $userid);
+	$statement->bindValue(':bookid', $bookid);
     $statement->execute();
 }
 catch (Exception $ex)

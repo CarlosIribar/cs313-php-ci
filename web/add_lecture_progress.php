@@ -34,14 +34,14 @@ form {
 
 <?php
 $id = $_GET["id"];
-echo "<input style=\"display:none\" type=\"text\" value=\"". $row['id'] . "\" placeholder=\"id\" name=\"id\">";
+echo "<input style=\"display:none\" type=\"text\" value=\"". $id . "\" placeholder=\"id\" name=\"bookid\">";
 
 $query = "SELECT Id, Name FROM Accounts";
 $statement = $db->prepare($query);  
 $statement->execute();
 
 $index = 0;
-echo "<select name='user'>";
+echo "<select name='userid'>";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {  
         if ($index == 0) {

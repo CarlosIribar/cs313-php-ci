@@ -51,7 +51,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 }
 ?>
 <?php
-    echo "<a href='/add_lecture_progress.php?id=" . $row['id'] . "'> Add Progress </a>";
+    echo "<a href='/add_lecture_progress.php?id=" . $id . "'> Add Progress </a>";
 ?>
 
 </div>
