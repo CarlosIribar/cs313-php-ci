@@ -50,7 +50,9 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo "<img height='300px' width='200px' src='". $row['cover'] . "'/><br>";
 }
 ?>
-
+<?php
+    echo "<a href='/add_lecture_progress.php?id=" . $row['id'] . "'> Add Progress </a>";
+?>
 
 </div>
 
