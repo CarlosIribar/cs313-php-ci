@@ -25,6 +25,14 @@ catch (PDOException $ex)
 <html>
 <head>
 	<title>Book</title>
+  <style>
+  table {
+      margin-top: 30px;
+  }
+  th, td {
+      padding: 3px;
+  }
+  </style>
 </head>
 
 <body>
@@ -56,8 +64,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
           <th>EndDate</th>
           <th>User</th>
           </tr>";
-$query = "SELECT b.StartDate, b.EndDate, b.Id, a.Name as user FROM LectureProgress b LEFT JOIN Accounts a ON UserId = a.Id WHERE a.BookId = ?";
-$st = $db->prepare($query);
+$q = "SELECT b.StartDate, b.EndDate, b.Id, a.Name as user FROM LectureProgress b LEFT JOIN Accounts a ON UserId = a.Id WHERE b.BookId = ?";
+$st = $db->prepare($q);
 $st->execute(array($_GET['id']));
 while ($progress = $st->fetch(PDO::FETCH_ASSOC))
 {  
