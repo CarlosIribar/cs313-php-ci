@@ -49,10 +49,27 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     echo $row['user'] . "<br>";
     echo "<img height='300px' width='200px' src='". $row['cover'] . "'/><br>";
 }
-?>
-<?php
     echo "<a href='/add_lecture_progress.php?id=" . $id . "'> Add Progress </a>";
+    echo "<table>
+          <tr>
+          <th>StartDate</th>
+          <th>EndDate</th>
+          <th>User</th>
+          </tr>";
+$query = "SELECT b.StartDate, b.EndDate, b.Id, a.Name as user FROM LectureProgress b LEFT JOIN Accounts a ON UserId = a.Id WHERE a.BookId = ?";
+$st = $db->prepare($query);
+$st->execute(array($_GET['id']));
+while ($progress = $st->fetch(PDO::FETCH_ASSOC))
+{  
+	echo "<tr id='row-" . $progress['id'] . "'>";
+    echo "<td>" . $progress['startdate'] . "</td>";
+    echo "<td>" . $progress['enddate'] . "</td>";
+    echo "<td>" . $progress['user'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
 ?>
+
 
 </div>
 
