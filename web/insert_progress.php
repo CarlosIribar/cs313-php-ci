@@ -7,6 +7,14 @@ $end = $_POST['end'];
 $userid = $_POST['userid'];
 $bookid = $_POST['bookid'];
 
+if ($start == '') {
+    $start = null;
+}
+
+if ($end == '') {
+    $end = null;
+}
+
 try
 {
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -29,6 +37,7 @@ catch (Exception $ex)
 	echo "Error with DB. Details: $ex";
 	die();
 }
-header("Location: books.php");
+$header = "Location: book?id="+ $bookid +".php";
+header($header);
 die(); 
 ?>
