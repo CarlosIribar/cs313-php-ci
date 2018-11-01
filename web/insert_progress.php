@@ -12,7 +12,7 @@ try
     $password = password_hash($password, PASSWORD_DEFAULT);
 
 	// We do this by preparing the query with placeholder values
-	$query = 'INSERT INTO LectureProgress(StartDate, EndDate, UserId, BookId) VALUES (:start, :end, :userid :bookid)';
+	$query = 'INSERT INTO LectureProgress(StartDate, EndDate, UserId, BookId) VALUES (:start, :end, :userid, :bookid)';
 	$statement = $db->prepare($query);
 	// Now we bind the values to the placeholders. This does some nice things
 	// including sanitizing the input with regard to sql commands.
