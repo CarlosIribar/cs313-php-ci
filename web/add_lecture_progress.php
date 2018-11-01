@@ -25,10 +25,10 @@ form {
 
 <form action="insert_progress.php" method="post">
 <label>Start Date</label>
-<input type="text" placeholder="Start Date" name="start">
+<input type="date" placeholder="Start Date" name="start">
 <br>
 <label>End Date</label>
-<input type="password" placeholder="End Date" name="end">
+<input type="date" placeholder="End Date" name="end">
 <br>
 <label>User</label>
 
