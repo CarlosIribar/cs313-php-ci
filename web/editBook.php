@@ -24,30 +24,33 @@ catch (PDOException $ex)
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Edit Book</title>
+	<title>Edit Book</title>
 </head>
 <style>
-input {
-    height: 20px;
-    width: 30%;
-}
-label {
-    display: block;
-    margin: 5px 0px;
-}
-form {
-    padding: 5px;
-}
+	input {
+		height: 20px;
+		width: 30%;
+	}
+
+	label {
+		display: block;
+		margin: 5px 0px;
+	}
+
+	form {
+		padding: 5px;
+	}
 </style>
 
 <body>
-<div>
-<a href="/books.php"> Back to Book List </a>
-<h1>Edit Book</h1>
+	<div>
+		<a href="/books.php"> Back to Book List </a>
+		<h1>Edit Book</h1>
 
-<form action="edit_book_db.php" method="post">
-<?php
+		<form action="edit_book_db.php" method="post">
+			<?php
 $id = $_GET["id"];
 $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, b.cover, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE b.id = ?";
 $statement = $db->prepare($query);  
@@ -92,17 +95,19 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 }
 ?>
 
-<input type="submit">
-</form>
+			<input type="submit">
+		</form>
 
 
 
-</div>
+	</div>
 
 </body>
+
 </html>
 
 </div>
 
 </body>
+
 </html>

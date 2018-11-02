@@ -23,45 +23,51 @@ catch (PDOException $ex)
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Books List</title>
 </head>
 <style>
-table {
-    margin-top: 30px;
-}
-th, td {
-    padding: 3px;
-}
+	table {
+		margin-top: 30px;
+	}
+
+	th,
+	td {
+		padding: 3px;
+	}
 </style>
+
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
- function removeBook(id) {
-    console.log(id);
-    $.ajax({
-        type: "POST",
-        url: "deleteBook.php",
-        data: { id: id }
-    }).done(function( msg ) {
-        $(`#row-${id}`).remove();
-    }); 
- }
-</script>
-<div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function removeBook(id) {
+			console.log(id);
+			$.ajax({
+				type: "POST",
+				url: "deleteBook.php",
+				data: {
+					id: id
+				}
+			}).done(function(msg) {
+				$(`#row-${id}`).remove();
+			});
+		}
+	</script>
+	<div>
 
 
-<form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="get">
-Search: <input type="text" placeholder="Search book by owner" name="owner">
-<input type="submit">
-</form>
+		<form action=<?php echo htmlspecialchars($_SERVER[ "PHP_SELF"]); ?> method="get"> Search:
+			<input type="text" placeholder="Search book by owner" name="owner">
+			<input type="submit">
+		</form>
 
-<a href="/add_book.php">Add book </a>
-<a href="/add_user.php">Add User </a>
+		<a href="/add_book.php">Add book </a>
+		<a href="/add_user.php">Add User </a>
 
-<h1>Books List</h1>
+		<h1>Books List</h1>
 
-<?php
+		<?php
 
 if(isset($_GET['owner']) && !empty($_GET['owner'])){
     $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE a.Name = ?";
@@ -97,12 +103,14 @@ echo "</table>";
 ?>
 
 
-</div>
+	</div>
 
 </body>
+
 </html>
 
 </div>
 
 </body>
+
 </html>

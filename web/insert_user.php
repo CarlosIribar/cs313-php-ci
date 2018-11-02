@@ -29,4 +29,3 @@ catch (Exception $ex)
 }
 header("Location: books.php");
 die(); 
-?>

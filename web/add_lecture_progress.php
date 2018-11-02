@@ -1,38 +1,41 @@
 <?php include 'loginDatabase.php';?>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Add  Progress</title>
+	<title>Add Progress</title>
 </head>
 <style>
-input {
-    height: 20px;
-    width: 30%;
-}
-label {
-    display: block;
-    margin: 5px 0px;
-}
-form {
-    padding: 5px;
-}
+	input {
+		height: 20px;
+		width: 30%;
+	}
+
+	label {
+		display: block;
+		margin: 5px 0px;
+	}
+
+	form {
+		padding: 5px;
+	}
 </style>
 
 <body>
-<div>
-<a href="/books.php"> Back to Book List </a>
-<h1>Add Progress</h1>
+	<div>
+		<a href="/books.php"> Back to Book List </a>
+		<h1>Add Progress</h1>
 
-<form action="insert_progress.php" method="post">
-<label>Start Date</label>
-<input type="date" placeholder="Start Date" name="start">
-<br>
-<label>End Date</label>
-<input type="date" placeholder="End Date" name="end">
-<br>
-<label>User</label>
+		<form action="insert_progress.php" method="post">
+			<label>Start Date</label>
+			<input type="date" placeholder="Start Date" name="start">
+			<br>
+			<label>End Date</label>
+			<input type="date" placeholder="End Date" name="end">
+			<br>
+			<label>User</label>
 
-<?php
+			<?php
 $id = $_GET["id"];
 echo "<input style=\"display:none\" type=\"text\" value=\"". $id . "\" placeholder=\"id\" name=\"bookid\">";
 
@@ -54,18 +57,20 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     }
     echo "</select>";
 ?>
-<br>
-<input type="submit">
-</form>
+			<br>
+			<input type="submit">
+		</form>
 
 
 
-</div>
+	</div>
 
 </body>
+
 </html>
 
 </div>
 
 </body>
+
 </html>

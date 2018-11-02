@@ -17,7 +17,7 @@ try
     $query = "SELECT Id, Name FROM Accounts";
     $statement = $db->prepare($query);  
     $statement->execute();
- 
+    
 }
 catch (PDOException $ex)
 {
@@ -27,70 +27,75 @@ catch (PDOException $ex)
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Add Book</title>
+	<title>Add Book</title>
 </head>
 <style>
-input {
-    height: 20px;
-    width: 30%;
-}
-label {
-    display: block;
-    margin: 5px 0px;
-}
-form {
-    padding: 5px;
-}
+	input {
+		height: 20px;
+		width: 30%;
+	}
+
+	label {
+		display: block;
+		margin: 5px 0px;
+	}
+
+	form {
+		padding: 5px;
+	}
 </style>
 
 <body>
-<div>
-<a href="/books.php"> Back to Book List </a>
-<h1>Add Book</h1>
+	<div>
+		<a href="/books.php"> Back to Book List </a>
+		<h1>Add Book</h1>
 
-<form action="insert_book.php" method="post">
-<label>Name</label>
-<input type="text" placeholder="Name" name="name">
-<br>
-<label>Author</label>
-<input type="text" placeholder="Author" name="author">
-<br>
-<label>ISBN</label>
-<input type="text" placeholder="ISBN" name="isbn">
-<br>
-<label>OWNER</label>
-<?php
+		<form action="insert_book.php" method="post">
+			<label>Name</label>
+			<input type="text" placeholder="Name" name="name">
+			<br>
+			<label>Author</label>
+			<input type="text" placeholder="Author" name="author">
+			<br>
+			<label>ISBN</label>
+			<input type="text" placeholder="ISBN" name="isbn">
+			<br>
+			<label>OWNER</label>
+			<?php
 $index = 0;
 echo "<select name='owner'>";
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-    {  
-        if ($index == 0) {
-            echo "<option selected='selected' value='" . $row['id'] . "'>" . $row['name'] . "</option>";
-        } else {
-            echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
-
-        }
-        $index = $index + 1;
+{  
+    if ($index == 0) {
+        echo "<option selected='selected' value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+    } else {
+        echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+        
     }
-    echo "</select>";
+    $index = $index + 1;
+}
+echo "</select>";
 ?>
-<br>
-<label>Cover link</label>
-<input type="text" placeholder="Cover link" name="cover">
-<br>
+			<br>
+			<label>Cover link</label>
+			<input type="text" placeholder="Cover link" name="cover">
+			<br>
 
-<input type="submit">
-</form>
+			<input type="submit">
+		</form>
 
 
 
-</div>
+	</div>
 
 </body>
+
 </html>
 
 </div>
 
 </body>
+
 </html>

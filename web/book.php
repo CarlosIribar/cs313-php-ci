@@ -23,23 +23,26 @@ catch (PDOException $ex)
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Book</title>
-  <style>
-  table {
-      margin-top: 30px;
-  }
-  th, td {
-      padding: 3px;
-  }
-  </style>
+	<style>
+		table {
+			margin-top: 30px;
+		}
+
+		th,
+		td {
+			padding: 3px;
+		}
+	</style>
 </head>
 
 <body>
-<div>
-<a href="/books.php"> Back to Book List </a>
-<h1>Book Detail</h1>
-<?php
+	<div>
+		<a href="/books.php"> Back to Book List </a>
+		<h1>Book Detail</h1>
+		<?php
 $id = $_GET["id"];
 $query = "SELECT b.Id, b.Name, b.Author, b.ISBN, b.cover, a.Name as user FROM books b LEFT JOIN Accounts a ON UserId = a.Id WHERE b.id = ?";
 $statement = $db->prepare($query);  
@@ -79,12 +82,14 @@ echo "</table>";
 ?>
 
 
-</div>
+	</div>
 
 </body>
+
 </html>
 
 </div>
 
 </body>
+
 </html>
